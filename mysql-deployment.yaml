@@ -19,11 +19,12 @@ metadata:
   labels:
     app: wordpress
 spec:
+  storageClassName: manual
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 20Gi
+      storage: 200Mi
 ---
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
@@ -49,10 +50,11 @@ spec:
         name: mysql
         env:
         - name: MYSQL_ROOT_PASSWORD
-          valueFrom:
-            secretKeyRef:
-              name: secret-demo
-              key: password
+          value: jodete2k
+          # valueFrom:
+          #   secretKeyRef:
+          #     name: secret-demo
+          #     key: password
         ports:
         - containerPort: 3306
           name: mysql
