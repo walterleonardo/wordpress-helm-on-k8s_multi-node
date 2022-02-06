@@ -54,6 +54,8 @@ spec:
           value: wordpress-mysqlsvc
         - name: WORDPRESS_DB_PASSWORD
           value: jodete2k
+        - name: WORDPRESS_DB_USER
+          value: walterleonardo
           # valueFrom:
           #   secretKeyRef:
           #     name: secret-demo
